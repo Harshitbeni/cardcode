@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CardCode - Code Sheet (Level None)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: #ffffff;
+      color: #333333;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      border-bottom: 2px solid #333;
+      padding-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #666;
+      font-weight: 400;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #333;
+      border-left: 4px solid #dc143c;
+      padding-left: 12px;
+    }
+
+    .mapping-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .mapping-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background-color: #f9f9f9;
+      border-radius: 6px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .char {
+      font-size: 28px;
+      font-weight: 700;
+      font-family: monospace;
+      min-width: 32px;
+      text-align: center;
+    }
+
+    .arrow {
+      color: #999;
+      font-size: 18px;
+    }
+
+    .card-display {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .rank {
+      font-size: 18px;
+    }
+
+    .suit {
+      font-size: 24px;
+    }
+
+    .red {
+      color: #dc143c;
+    }
+
+    .black {
+      color: #000000;
+    }
+
+    .special-cards {
+      background-color: #fff8dc;
+      padding: 20px;
+      border-radius: 8px;
+      border: 2px solid #dc143c;
+    }
+
+    .special-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    .special-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .special-char {
+      font-size: 24px;
+      font-weight: 700;
+      font-family: monospace;
+      min-width: 60px;
+      background-color: white;
+      padding: 8px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .card-visual {
+      width: 50px;
+      height: 75px;
+      background: white;
+      border: 2px solid #dc143c;
+      border-radius: 6px;
+      background-image:
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 8px,
+          #dc143c 8px,
+          #dc143c 9px
+        ),
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 8px,
+          #dc143c 8px,
+          #dc143c 9px
+        );
+    }
+
+    .card-visual.sideways {
+      width: 75px;
+      height: 50px;
+    }
+
+    .note {
+      background-color: #f0f0f0;
+      padding: 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      color: #666;
+      margin-top: 32px;
+    }
+
+    @media print {
+      body {
+        padding: 20px;
+      }
+
+      .note {
+        page-break-before: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>CardCode Reference Sheet</h1>
+      <p class="subtitle">Level None - Basic Character Encoding</p>
+    </header>
+
+    <div class="section">
+      <h2 class="section-title">Uppercase Letters (A-Z)</h2>
+
+      <h3 style="font-size: 18px; margin-bottom: 12px; color: #666;">A-M → Spades ♠ (Black)</h3>
+      <div class="mapping-grid">
+        <div class="mapping-item">
+          <span class="char">A</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">A</span>
+            <span class="suit">♠</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">B</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">2</span>
+            <span class="suit">♠</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">C</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">3</span>
+            <span class="suit">♠</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">D</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">4</span>
+            <span class="suit">♠</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">E</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">5</span>
+            <span class="suit">♠</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">F</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">6</span>
+            <span class="suit">♠</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">G</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">7</span>
+            <span class="suit">♠</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">H</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">8</span>
+            <span class="suit">♠</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">I</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">9</span>
+            <span class="suit">♠</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">J</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">10</span>
+            <span class="suit">♠</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">K</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">J</span>
+            <span class="suit">♠</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">L</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">Q</span>
+            <span class="suit">♠</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">M</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">K</span>
+            <span class="suit">♠</span>
+          </span>
+        </div>
+      </div>
+
+      <h3 style="font-size: 18px; margin-bottom: 12px; margin-top: 24px; color: #666;">N-Z → Clubs ♣ (Black)</h3>
+      <div class="mapping-grid">
+        <div class="mapping-item">
+          <span class="char">N</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">A</span>
+            <span class="suit">♣</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">O</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">2</span>
+            <span class="suit">♣</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">P</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">3</span>
+            <span class="suit">♣</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">Q</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">4</span>
+            <span class="suit">♣</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">R</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">5</span>
+            <span class="suit">♣</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">S</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">6</span>
+            <span class="suit">♣</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">T</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">7</span>
+            <span class="suit">♣</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">U</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">8</span>
+            <span class="suit">♣</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">V</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">9</span>
+            <span class="suit">♣</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">W</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">10</span>
+            <span class="suit">♣</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">X</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">J</span>
+            <span class="suit">♣</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">Y</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">Q</span>
+            <span class="suit">♣</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">Z</span>
+          <span class="arrow">→</span>
+          <span class="card-display black">
+            <span class="rank">K</span>
+            <span class="suit">♣</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Lowercase Letters (a-z)</h2>
+
+      <h3 style="font-size: 18px; margin-bottom: 12px; color: #666;">a-m → Hearts ♥ (Red)</h3>
+      <div class="mapping-grid">
+        <div class="mapping-item">
+          <span class="char">a</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">A</span>
+            <span class="suit">♥</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">b</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">2</span>
+            <span class="suit">♥</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">c</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">3</span>
+            <span class="suit">♥</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">d</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">4</span>
+            <span class="suit">♥</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">e</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">5</span>
+            <span class="suit">♥</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">f</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">6</span>
+            <span class="suit">♥</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">g</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">7</span>
+            <span class="suit">♥</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">h</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">8</span>
+            <span class="suit">♥</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">i</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">9</span>
+            <span class="suit">♥</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">j</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">10</span>
+            <span class="suit">♥</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">k</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">J</span>
+            <span class="suit">♥</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">l</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">Q</span>
+            <span class="suit">♥</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">m</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">K</span>
+            <span class="suit">♥</span>
+          </span>
+        </div>
+      </div>
+
+      <h3 style="font-size: 18px; margin-bottom: 12px; margin-top: 24px; color: #666;">n-z → Diamonds ♦ (Red)</h3>
+      <div class="mapping-grid">
+        <div class="mapping-item">
+          <span class="char">n</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">A</span>
+            <span class="suit">♦</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">o</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">2</span>
+            <span class="suit">♦</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">p</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">3</span>
+            <span class="suit">♦</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">q</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">4</span>
+            <span class="suit">♦</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">r</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">5</span>
+            <span class="suit">♦</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">s</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">6</span>
+            <span class="suit">♦</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">t</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">7</span>
+            <span class="suit">♦</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">u</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">8</span>
+            <span class="suit">♦</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">v</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">9</span>
+            <span class="suit">♦</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">w</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">10</span>
+            <span class="suit">♦</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">x</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">J</span>
+            <span class="suit">♦</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">y</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">Q</span>
+            <span class="suit">♦</span>
+          </span>
+        </div>
+        <div class="mapping-item">
+          <span class="char">z</span>
+          <span class="arrow">→</span>
+          <span class="card-display red">
+            <span class="rank">K</span>
+            <span class="suit">♦</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Special Characters</h2>
+      <div class="special-cards">
+        <div class="special-item">
+          <span class="special-char">(space)</span>
+          <span class="arrow">→</span>
+          <div class="card-visual sideways"></div>
+          <span>Card back (sideways)</span>
+        </div>
+        <div class="special-item">
+          <span class="special-char">.</span>
+          <span class="arrow">→</span>
+          <div class="card-visual"></div>
+          <span>Card back (upright)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Notes:</strong>
+      <ul style="margin-left: 20px; margin-top: 8px;">
+        <li>All other characters (numbers, punctuation except period, symbols) are ignored</li>
+        <li>Case matters: uppercase letters map to black suits (♠♣), lowercase to red suits (♥♦)</li>
+        <li>This is Level None encoding - no encryption is applied</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

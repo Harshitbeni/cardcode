@@ -1,0 +1,325 @@
+/* CSS Custom Properties */
+:root {
+  --bg-color: #f5f5f5;
+  --card-bg: #ffffff;
+  --text-color: #333333;
+  --border-color: #e0e0e0;
+  --button-bg: #666666;
+  --button-hover: #555555;
+  --red-suit: #dc143c;
+  --black-suit: #000000;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-color);
+}
+
+header .subtitle {
+  font-size: 14px;
+  color: #999999;
+  font-weight: 400;
+}
+
+/* Main Content */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Input Section */
+.input-section {
+  width: 100%;
+}
+
+#input {
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  font-family: inherit;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  resize: vertical;
+  min-height: 100px;
+  transition: border-color 0.2s;
+}
+
+#input:focus {
+  outline: none;
+  border-color: var(--button-bg);
+}
+
+#input::placeholder {
+  color: #999999;
+}
+
+/* Encryption Controls */
+.encryption-controls {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.control-group label {
+  font-size: 14px;
+  color: #666666;
+  font-weight: 500;
+}
+
+#encryption-key {
+  width: 80px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--card-bg);
+  text-align: center;
+}
+
+#encryption-key:focus {
+  outline: none;
+  border-color: var(--button-bg);
+}
+
+.radio-group {
+  display: flex;
+  gap: 16px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+.radio-group input[type="radio"] {
+  cursor: pointer;
+}
+
+/* Button Section */
+.button-section {
+  display: flex;
+  justify-content: center;
+}
+
+#encode-btn {
+  padding: 12px 40px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: var(--button-bg);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+#encode-btn:hover:not(:disabled) {
+  background-color: var(--button-hover);
+}
+
+#encode-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+#encode-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* Card Grid */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 20px 0;
+  min-height: 90px;
+}
+
+.card-grid:empty {
+  display: none;
+}
+
+/* Playing Card */
+.card {
+  width: 60px;
+  height: 90px;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: cardFadeIn 0.3s ease-out;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card Rank (Number) */
+.card-rank {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Card Suit Symbol */
+.card-suit {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-size: 28px;
+  line-height: 1;
+}
+
+/* Suit Colors */
+.card.hearts .card-rank,
+.card.hearts .card-suit,
+.card.diamonds .card-rank,
+.card.diamonds .card-suit {
+  color: var(--red-suit);
+}
+
+.card.spades .card-rank,
+.card.spades .card-suit,
+.card.clubs .card-rank,
+.card.clubs .card-suit {
+  color: var(--black-suit);
+}
+
+/* Face Down Cards */
+.card.facedown {
+  background: var(--card-bg);
+  border: 2px solid var(--red-suit);
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      var(--red-suit) 10px,
+      var(--red-suit) 12px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      var(--red-suit) 10px,
+      var(--red-suit) 12px
+    );
+  background-size: 100% 100%;
+}
+
+/* Face Down Sideways (Space) */
+.card.facedown-sideways {
+  width: 90px;
+  height: 60px;
+  background: var(--card-bg);
+  border: 2px solid var(--red-suit);
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      var(--red-suit) 10px,
+      var(--red-suit) 12px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      var(--red-suit) 10px,
+      var(--red-suit) 12px
+    );
+  background-size: 100% 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 36px;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(auto-fit, 48px);
+    gap: 6px;
+  }
+
+  .card {
+    width: 48px;
+    height: 72px;
+  }
+
+  .card-rank {
+    font-size: 16px;
+    top: 6px;
+    left: 6px;
+  }
+
+  .card-suit {
+    font-size: 22px;
+    bottom: 6px;
+    right: 6px;
+  }
+
+  .card.facedown-sideways {
+    width: 72px;
+    height: 48px;
+  }
+}
