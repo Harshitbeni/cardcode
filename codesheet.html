@@ -20,8 +20,9 @@
     }
 
     .container {
-      max-width: 900px;
+      max-width: 100%;
       margin: 0 auto;
+      padding: 0 20px;
     }
 
     header {
@@ -43,129 +44,17 @@
       font-weight: 400;
     }
 
-    .section {
-      margin-bottom: 40px;
+    table {
+      margin-bottom: 32px;
     }
 
-    .section-title {
-      font-size: 24px;
+    th {
       font-weight: 600;
-      margin-bottom: 16px;
       color: #333;
-      border-left: 4px solid #dc143c;
-      padding-left: 12px;
     }
 
-    .mapping-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .mapping-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px;
-      background-color: #f9f9f9;
-      border-radius: 6px;
-      border: 1px solid #e0e0e0;
-    }
-
-    .char {
-      font-size: 28px;
-      font-weight: 700;
-      font-family: monospace;
-      min-width: 32px;
-      text-align: center;
-    }
-
-    .arrow {
-      color: #999;
-      font-size: 18px;
-    }
-
-    .card-display {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 16px;
-      font-weight: 600;
-    }
-
-    .rank {
-      font-size: 18px;
-    }
-
-    .suit {
-      font-size: 24px;
-    }
-
-    .red {
-      color: #dc143c;
-    }
-
-    .black {
-      color: #000000;
-    }
-
-    .special-cards {
-      background-color: #fff8dc;
-      padding: 20px;
-      border-radius: 8px;
-      border: 2px solid #dc143c;
-    }
-
-    .special-item {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 12px;
-      font-size: 16px;
-    }
-
-    .special-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .special-char {
-      font-size: 24px;
-      font-weight: 700;
-      font-family: monospace;
-      min-width: 60px;
-      background-color: white;
-      padding: 8px;
-      border-radius: 4px;
-      text-align: center;
-    }
-
-    .card-visual {
-      width: 50px;
-      height: 75px;
-      background: white;
-      border: 2px solid #dc143c;
-      border-radius: 6px;
-      background-image:
-        repeating-linear-gradient(
-          45deg,
-          transparent,
-          transparent 8px,
-          #dc143c 8px,
-          #dc143c 9px
-        ),
-        repeating-linear-gradient(
-          -45deg,
-          transparent,
-          transparent 8px,
-          #dc143c 8px,
-          #dc143c 9px
-        );
-    }
-
-    .card-visual.sideways {
-      width: 75px;
-      height: 50px;
+    td {
+      vertical-align: middle;
     }
 
     .note {
@@ -175,6 +64,14 @@
       font-size: 14px;
       color: #666;
       margin-top: 32px;
+    }
+
+    .creators {
+      text-align: right;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #999;
+      font-style: italic;
     }
 
     @media print {
@@ -195,463 +92,147 @@
       <p class="subtitle">Level None - Basic Character Encoding</p>
     </header>
 
-    <div class="section">
-      <h2 class="section-title">Uppercase Letters (A-Z)</h2>
+    <table style="width: 100%; border-collapse: collapse; font-size: 16px;">
+      <tbody>
+        <!-- All Uppercase Letters (A-Z) -->
+        <tr style="background-color: #f8f8f8;">
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">A</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">B</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">C</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">D</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">E</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">F</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">G</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">H</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">I</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">J</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">K</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">L</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">M</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">N</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">O</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">P</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">Q</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">R</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">S</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">T</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">U</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">V</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">W</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">X</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">Y</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">Z</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">A♠</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">2♠</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">3♠</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">4♠</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">5♠</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">6♠</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">7♠</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">8♠</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">9♠</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">10♠</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">J♠</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">Q♠</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">K♠</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">A♣</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">2♣</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">3♣</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">4♣</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">5♣</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">6♣</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">7♣</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">8♣</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">9♣</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">10♣</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">J♣</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">Q♣</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600;">K♣</span></td>
+        </tr>
 
-      <h3 style="font-size: 18px; margin-bottom: 12px; color: #666;">A-M → Spades ♠ (Black)</h3>
-      <div class="mapping-grid">
-        <div class="mapping-item">
-          <span class="char">A</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">A</span>
-            <span class="suit">♠</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">B</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">2</span>
-            <span class="suit">♠</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">C</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">3</span>
-            <span class="suit">♠</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">D</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">4</span>
-            <span class="suit">♠</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">E</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">5</span>
-            <span class="suit">♠</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">F</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">6</span>
-            <span class="suit">♠</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">G</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">7</span>
-            <span class="suit">♠</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">H</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">8</span>
-            <span class="suit">♠</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">I</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">9</span>
-            <span class="suit">♠</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">J</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">10</span>
-            <span class="suit">♠</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">K</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">J</span>
-            <span class="suit">♠</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">L</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">Q</span>
-            <span class="suit">♠</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">M</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">K</span>
-            <span class="suit">♠</span>
-          </span>
-        </div>
-      </div>
+        <!-- Spacing row -->
+        <tr style="height: 24px;">
+          <td colspan="26" style="border: none;"></td>
+        </tr>
 
-      <h3 style="font-size: 18px; margin-bottom: 12px; margin-top: 24px; color: #666;">N-Z → Clubs ♣ (Black)</h3>
-      <div class="mapping-grid">
-        <div class="mapping-item">
-          <span class="char">N</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">A</span>
-            <span class="suit">♣</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">O</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">2</span>
-            <span class="suit">♣</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">P</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">3</span>
-            <span class="suit">♣</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">Q</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">4</span>
-            <span class="suit">♣</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">R</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">5</span>
-            <span class="suit">♣</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">S</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">6</span>
-            <span class="suit">♣</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">T</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">7</span>
-            <span class="suit">♣</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">U</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">8</span>
-            <span class="suit">♣</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">V</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">9</span>
-            <span class="suit">♣</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">W</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">10</span>
-            <span class="suit">♣</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">X</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">J</span>
-            <span class="suit">♣</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">Y</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">Q</span>
-            <span class="suit">♣</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">Z</span>
-          <span class="arrow">→</span>
-          <span class="card-display black">
-            <span class="rank">K</span>
-            <span class="suit">♣</span>
-          </span>
-        </div>
-      </div>
-    </div>
+        <!-- All Lowercase Letters (a-z) -->
+        <tr style="background-color: #f8f8f8;">
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">a</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">b</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">c</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">d</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">e</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">f</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">g</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">h</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">i</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">j</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">k</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">l</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">m</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">n</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">o</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">p</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">q</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">r</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">s</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: center;">t</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">u</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">v</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">w</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">x</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">y</td>
+          <td style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">z</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">A♥</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">2♥</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">3♥</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">4♥</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">5♥</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">6♥</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">7♥</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">8♥</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">9♥</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">10♥</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">J♥</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">Q♥</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">K♥</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">A♦</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">2♦</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">3♦</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">4♦</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">5♦</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">6♦</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">7♦</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">8♦</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">9♦</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">10♦</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">J♦</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">Q♦</span></td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 18px; font-weight: 600; color: #dc143c;">K♦</span></td>
+        </tr>
 
-    <div class="section">
-      <h2 class="section-title">Lowercase Letters (a-z)</h2>
+        <!-- Spacing row -->
+        <tr style="height: 24px;">
+          <td colspan="26" style="border: none;"></td>
+        </tr>
 
-      <h3 style="font-size: 18px; margin-bottom: 12px; color: #666;">a-m → Hearts ♥ (Red)</h3>
-      <div class="mapping-grid">
-        <div class="mapping-item">
-          <span class="char">a</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">A</span>
-            <span class="suit">♥</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">b</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">2</span>
-            <span class="suit">♥</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">c</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">3</span>
-            <span class="suit">♥</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">d</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">4</span>
-            <span class="suit">♥</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">e</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">5</span>
-            <span class="suit">♥</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">f</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">6</span>
-            <span class="suit">♥</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">g</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">7</span>
-            <span class="suit">♥</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">h</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">8</span>
-            <span class="suit">♥</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">i</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">9</span>
-            <span class="suit">♥</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">j</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">10</span>
-            <span class="suit">♥</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">k</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">J</span>
-            <span class="suit">♥</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">l</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">Q</span>
-            <span class="suit">♥</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">m</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">K</span>
-            <span class="suit">♥</span>
-          </span>
-        </div>
-      </div>
-
-      <h3 style="font-size: 18px; margin-bottom: 12px; margin-top: 24px; color: #666;">n-z → Diamonds ♦ (Red)</h3>
-      <div class="mapping-grid">
-        <div class="mapping-item">
-          <span class="char">n</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">A</span>
-            <span class="suit">♦</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">o</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">2</span>
-            <span class="suit">♦</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">p</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">3</span>
-            <span class="suit">♦</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">q</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">4</span>
-            <span class="suit">♦</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">r</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">5</span>
-            <span class="suit">♦</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">s</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">6</span>
-            <span class="suit">♦</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">t</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">7</span>
-            <span class="suit">♦</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">u</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">8</span>
-            <span class="suit">♦</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">v</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">9</span>
-            <span class="suit">♦</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">w</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">10</span>
-            <span class="suit">♦</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">x</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">J</span>
-            <span class="suit">♦</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">y</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">Q</span>
-            <span class="suit">♦</span>
-          </span>
-        </div>
-        <div class="mapping-item">
-          <span class="char">z</span>
-          <span class="arrow">→</span>
-          <span class="card-display red">
-            <span class="rank">K</span>
-            <span class="suit">♦</span>
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2 class="section-title">Special Characters</h2>
-      <div class="special-cards">
-        <div class="special-item">
-          <span class="special-char">(space)</span>
-          <span class="arrow">→</span>
-          <div class="card-visual sideways"></div>
-          <span>Card back (sideways)</span>
-        </div>
-        <div class="special-item">
-          <span class="special-char">.</span>
-          <span class="arrow">→</span>
-          <div class="card-visual"></div>
-          <span>Card back (upright)</span>
-        </div>
-      </div>
-    </div>
+        <!-- Special characters -->
+        <tr style="background-color: #f8f8f8;">
+          <td colspan="12" style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 18px; text-align: center;">(space)</td>
+          <td colspan="2" style="padding: 10px; border: none;"></td>
+          <td colspan="12" style="padding: 10px; border: 1px solid #ddd; font-weight: 700; font-family: monospace; font-size: 20px; text-align: center;">.</td>
+        </tr>
+        <tr>
+          <td colspan="12" style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 16px; font-weight: 600;">Card back (sideways)</span></td>
+          <td colspan="2" style="padding: 10px; border: none;"></td>
+          <td colspan="12" style="padding: 10px; border: 1px solid #ddd; text-align: center;"><span style="font-size: 16px; font-weight: 600;">Card back (upright)</span></td>
+        </tr>
+      </tbody>
+    </table>
 
     <div class="note">
       <strong>Notes:</strong>
@@ -660,6 +241,20 @@
         <li>Case matters: uppercase letters map to black suits (♠♣), lowercase to red suits (♥♦)</li>
         <li>This is Level None encoding - no encryption is applied</li>
       </ul>
+
+      <div style="margin-top: 20px;">
+        <strong>Encryption Levels:</strong>
+        <ul style="margin-left: 20px; margin-top: 8px;">
+          <li><strong>Level 0 (None):</strong> Direct character-to-card mapping (shown above)</li>
+          <li><strong>Level 1 (Simple Shift):</strong> All cards shift forward by the encryption key value (1-12). After King (13), wraps back to Ace (1)</li>
+          <li><strong>Level 2 (Directional Shift):</strong> Odd-ranked cards (A, 3, 5, 7, 9, J, K) shift forward, even-ranked cards (2, 4, 6, 8, 10, Q) shift backward by the key value</li>
+        </ul>
+        <p style="margin-top: 12px; font-style: italic;">Example: With Key=1 and Level 1, 'a' (A♥) becomes 2♥. With Key=1 and Level 2, 'a' (A♥, odd) becomes 2♥ (forward), but 'b' (2♥, even) becomes A♥ (backward).</p>
+      </div>
+    </div>
+
+    <div class="creators">
+      Created by Alexa Jacobson & Harshit Beniwal
     </div>
   </div>
 </body>

@@ -215,10 +215,210 @@ function handleInputChange() {
   }
 }
 
+// ===== DECODER FUNCTIONS =====
+
+// Build reverse card-to-character mapping
+function buildCardToCharMap() {
+  const cardToChar = {};
+
+  for (const [char, cardData] of Object.entries(charToCard)) {
+    // Skip special characters (space, period)
+    if (cardData.type) continue;
+
+    // Build code: rank + first letter of suit (uppercase)
+    const code = cardData.rank + cardData.suit[0].toUpperCase();
+    cardToChar[code] = char;
+  }
+
+  return cardToChar;
+}
+
+// Create the reverse mapping
+const cardToChar = buildCardToCharMap();
+
+// Parse card codes from a string
+function parseCardCodes(text) {
+  // Regex to match: rank (A, 2-10, J, Q, K) + suit (H, D, S, C)
+  const regex = /(A|[2-9]|10|J|Q|K)([HDSC])/gi;
+  const matches = text.matchAll(regex);
+  return Array.from(matches, m => m[0].toUpperCase());
+}
+
+// Convert rank display string to number (1-13)
+function rankToNumber(rank) {
+  if (rank === 'A') return 1;
+  if (rank === 'J') return 11;
+  if (rank === 'Q') return 12;
+  if (rank === 'K') return 13;
+  return parseInt(rank);
+}
+
+// Get suit name from abbreviation
+function getSuitName(suitAbbr) {
+  const suits = { 'H': 'hearts', 'D': 'diamonds', 'S': 'spades', 'C': 'clubs' };
+  return suits[suitAbbr.toUpperCase()];
+}
+
+// Apply decryption to reverse encryption
+function applyDecryption(code, key, level) {
+  if (level === 0 || key === 0) {
+    return code; // No decryption needed
+  }
+
+  // Parse the card code (e.g., "8H" -> rank: 8, suit: H)
+  const match = code.match(/(A|[2-9]|10|J|Q|K)([HDSC])/i);
+  if (!match) return code;
+
+  const [, rankStr, suitAbbr] = match;
+  let rankValue = rankToNumber(rankStr);
+
+  // Reverse the encryption
+  if (level === 1) {
+    // Level 1 encrypted by shifting forward, so decrypt by shifting backward
+    rankValue = ((rankValue - 1 - key + 13) % 13) + 1;
+  } else if (level === 2) {
+    // Level 2: Odd ranks shifted forward, even ranks shifted backward
+    // To decrypt, try both directions and verify which one re-encrypts correctly
+
+    // Try shifting backward (reverses forward shift from odd original)
+    const shiftedBackward = ((rankValue - 1 - key + 13) % 13) + 1;
+
+    // Try shifting forward (reverses backward shift from even original)
+    const shiftedForward = ((rankValue - 1 + key) % 13) + 1;
+
+    // Verify which one re-encrypts back to the current encrypted rank
+    // If shiftedBackward is odd, it would encrypt forward
+    if (shiftedBackward % 2 === 1) {
+      const reEncrypted = ((shiftedBackward - 1 + key) % 13) + 1;
+      if (reEncrypted === rankValue) {
+        rankValue = shiftedBackward;
+      }
+    }
+
+    // If shiftedForward is even, it would encrypt backward
+    if (shiftedForward % 2 === 0) {
+      const reEncrypted = ((shiftedForward - 1 - key + 13) % 13) + 1;
+      if (reEncrypted === rankValue) {
+        rankValue = shiftedForward;
+      }
+    }
+  }
+
+  // Convert back to card code
+  const newRank = convertRankNumberToDisplay(rankValue);
+  return newRank + suitAbbr.toUpperCase();
+}
+
+// Decode text from card codes
+function decodeText(input, key, level) {
+  // Split by spaces to get segments
+  const segments = input.split(' ');
+
+  return segments.map((segment, index) => {
+    // Check if segment is just punctuation
+    if (segment === '.' || segment === ',') {
+      return segment;
+    }
+
+    // Check if segment ends with punctuation
+    let trailingPunctuation = '';
+    let codeSegment = segment;
+
+    if (segment.endsWith('.') || segment.endsWith(',')) {
+      trailingPunctuation = segment.slice(-1);
+      codeSegment = segment.slice(0, -1);
+    }
+
+    // Parse card codes from the segment (without trailing punctuation)
+    const codes = parseCardCodes(codeSegment);
+
+    // Apply decryption if needed, then convert to characters
+    const decoded = codes.map(code => {
+      const decryptedCode = applyDecryption(code, key, level);
+      return cardToChar[decryptedCode] || '';
+    }).join('');
+
+    // Append trailing punctuation directly (no space)
+    return decoded + trailingPunctuation;
+  }).join(' ');
+}
+
+// Handle tab switching
+function handleTabSwitch(tabName) {
+  // Update tab buttons
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.classList.toggle('active', tab.dataset.tab === tabName);
+  });
+
+  // Update content visibility
+  document.querySelectorAll('.tab-content').forEach(content => {
+    content.classList.toggle('active', content.id === `${tabName}-content`);
+  });
+}
+
+// Get decryption settings from UI
+function getDecryptionSettings() {
+  const keyInput = document.getElementById('decrypt-key');
+  const levelRadios = document.getElementsByName('decrypt-level');
+
+  const key = parseInt(keyInput.value) || 0;
+  let level = 0;
+
+  for (const radio of levelRadios) {
+    if (radio.checked) {
+      level = parseInt(radio.value);
+      break;
+    }
+  }
+
+  return { key, level };
+}
+
+// Handle decode button click
+function handleDecode() {
+  const input = document.getElementById('decode-input');
+  const output = document.getElementById('decode-output');
+
+  if (!input.value.trim()) {
+    return;
+  }
+
+  const { key, level } = getDecryptionSettings();
+  const decoded = decodeText(input.value, key, level);
+  output.textContent = decoded;
+}
+
+// Handle decode input changes
+function handleDecodeInputChange() {
+  const input = document.getElementById('decode-input');
+  const decodeBtn = document.getElementById('decode-btn');
+
+  // Enable/disable button
+  decodeBtn.disabled = !input.value.trim();
+
+  // Clear output when typing
+  const output = document.getElementById('decode-output');
+  if (output.textContent) {
+    output.textContent = '';
+  }
+}
+
 // Initialize event listeners
 document.addEventListener('DOMContentLoaded', () => {
+  // Encode tab elements
   const input = document.getElementById('input');
   const encodeBtn = document.getElementById('encode-btn');
+
+  // Decode tab elements
+  const decodeInput = document.getElementById('decode-input');
+  const decodeBtn = document.getElementById('decode-btn');
+
+  // Tab switching
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', (e) => {
+      handleTabSwitch(e.target.dataset.tab);
+    });
+  });
 
   // Encode button click
   encodeBtn.addEventListener('click', handleEncode);
@@ -230,6 +430,19 @@ document.addEventListener('DOMContentLoaded', () => {
   input.addEventListener('keydown', (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
       handleEncode();
+    }
+  });
+
+  // Decode button click
+  decodeBtn.addEventListener('click', handleDecode);
+
+  // Decode input changes
+  decodeInput.addEventListener('input', handleDecodeInputChange);
+
+  // Allow Enter key to decode (Ctrl/Cmd + Enter)
+  decodeInput.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+      handleDecode();
     }
   });
 });

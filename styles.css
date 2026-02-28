@@ -58,6 +58,47 @@ main {
   gap: 20px;
 }
 
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 24px;
+}
+
+.tab {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-size: 16px;
+  color: #666666;
+  font-weight: 400;
+  transition: all 0.2s;
+}
+
+.tab.active {
+  color: var(--text-color);
+  border-bottom-color: var(--text-color);
+  font-weight: 600;
+}
+
+.tab:hover {
+  color: var(--text-color);
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tab-content.active {
+  display: flex;
+}
+
 /* Input Section */
 .input-section {
   width: 100%;
@@ -83,6 +124,48 @@ main {
 
 #input::placeholder {
   color: #999999;
+}
+
+/* Decode Input */
+#decode-input {
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  font-family: 'Monaco', 'Courier New', monospace;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  resize: vertical;
+  min-height: 100px;
+  transition: border-color 0.2s;
+  text-transform: uppercase;
+}
+
+#decode-input:focus {
+  outline: none;
+  border-color: var(--button-bg);
+}
+
+#decode-input::placeholder {
+  color: #999999;
+  text-transform: none;
+}
+
+/* Decode Output */
+.decode-output {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 18px;
+  line-height: 1.6;
+  min-height: 60px;
+  word-wrap: break-word;
+  font-family: inherit;
+}
+
+.decode-output:empty {
+  display: none;
 }
 
 /* Encryption Controls */
@@ -148,7 +231,8 @@ main {
   justify-content: center;
 }
 
-#encode-btn {
+#encode-btn,
+#decode-btn {
   padding: 12px 40px;
   font-size: 16px;
   font-weight: 600;
@@ -160,16 +244,19 @@ main {
   transition: background-color 0.2s, opacity 0.2s;
 }
 
-#encode-btn:hover:not(:disabled) {
+#encode-btn:hover:not(:disabled),
+#decode-btn:hover:not(:disabled) {
   background-color: var(--button-hover);
 }
 
-#encode-btn:disabled {
+#encode-btn:disabled,
+#decode-btn:disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
 
-#encode-btn:active:not(:disabled) {
+#encode-btn:active:not(:disabled),
+#decode-btn:active:not(:disabled) {
   transform: translateY(1px);
 }
 
